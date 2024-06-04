@@ -1,0 +1,68 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<!-- FORM POPUP -->
+<div class="form-popup">
+
+    <!-- /CLOSE BTN -->
+    <!-- FORM POPUP HEADLINE -->
+    <div class="form-popup-headline primary">
+        <h2>Register Account</h2>
+        <p>Register now and start making money from home!</p>
+    </div>
+    <!-- /FORM POPUP HEADLINE -->
+    <!-- FORM POPUP CONTENT -->
+    <div class="form-popup-content">
+        <form id="register-form4" method="post" enctype="multipart/form-data" asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="Error-Message"></div>
+            <label asp-for="FirstName" class="rl-label"></label>
+            <input asp-for="FirstName" type="text" placeholder="First Name">
+            <span asp-validation-for="FirstName" class="Error-Message"></span>
+
+            <label asp-for="LastName" class="rl-label"></label>
+            <input asp-for="LastName" type="text" placeholder="Last Name">
+            <span asp-validation-for="LastName" class="Error-Message"></span>
+
+            <label asp-for="PhoneNumber" class="rl-label"></label>
+            <input asp-for="PhoneNumber" type="text" placeholder="Phone Number">
+            <span asp-validation-for="PhoneNumber" class="Error-Message"></span>
+
+            <label asp-for="Email" class="rl-label"></label>
+            <input asp-for="Email" type="email" placeholder="someone@example.com">
+            <span asp-validation-for="Email" class="Error-Message"></span>
+
+            <label asp-for="Password" class="rl-label"></label>
+            <input asp-for="Password" type="password" placeholder="Enter your password here...">
+            <span asp-validation-for="Password" class="Error-Message"></span>
+
+            <label asp-for="RoleName" class="rl-label"></label>
+            <select asp-for="RoleName" class="form-control">
+                <option value="">Select Role</option>
+                <option value="Member">Member</option>
+                <option value="Vendor">Vendor</option>
+                <option value="Artist">Artist</option>
+            </select>
+            <span asp-validation-for="RoleName" class="Error-Message"></span>
+
+            <button class="button mid dark">Register <span class="primary">Now!</span></button>
+        </form>
+    </div>
+    <!-- /FORM POPUP CONTENT -->
+</div>
+<!-- /FORM POPUP -->
+@section Scripts {
+    <!-- jQuery -->
+    <script src="~/js/vendor/jquery-3.1.0.min.js"></script>
+    <script src="~/js/vendor/twitter/jquery.tweet.min.js"></script>
+    <!-- Side Menu -->
+    <script src="~/js/side-menu.js"></script>
+    <!-- User Quickview Dropdown -->
+    <script src="~/js/user-board.js"></script>
+    <!-- Footer -->
+    <script src="~/js/footer.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

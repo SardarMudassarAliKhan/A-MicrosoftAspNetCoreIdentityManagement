@@ -1,0 +1,56 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!-- FORM POPUP -->
+<div class="form-popup">
+
+    <!-- FORM POPUP HEADLINE -->
+    <div class="form-popup-headline secondary">
+        <h2>Login to your Account</h2>
+        <p>Enter now to your account and start buying and selling!</p>
+    </div>
+    <!-- /FORM POPUP HEADLINE -->
+    <!-- FORM POPUP CONTENT -->
+    <div class="form-popup-content">
+        <form id="login-form2" method="post" enctype="multipart/form-data" asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="Error-Message"></div>
+            <label asp-for="Email" class="rl-label"></label>
+            <input asp-for="Email" type="text" placeholder="someone@example.com" required>
+            <span asp-validation-for="Email" class="Error-Message"></span>
+            <label asp-for="Password" class="rl-label"></label>
+            <input asp-for="Password" type="password" placeholder="Enter your password here..." required>
+            <span asp-validation-for="Password" class="Error-Message"></span>
+            <!-- CHECKBOX -->
+            <input asp-for="RememberMe" type="checkbox" checked>
+            <label asp-for="RememberMe" class="label-check">
+                <span class="checkbox primary primary"><span></span></span>
+                Remember username and password
+            </label>
+            <span asp-validation-for="RememberMe" class="Error-Message"></span>
+            <!-- /CHECKBOX -->
+            <p>Forgot your password? <a asp-action="ForgotPassword" asp-controller="Account" class="primary">Click here!</a></p>
+            <button class="button mid dark">Login <span class="primary">Now!</span></button>
+        </form>
+        <!-- LINE SEPARATOR -->
+        <hr class="line-separator double">
+
+    </div>
+    <!-- /FORM POPUP CONTENT -->
+</div>
+<!-- /FORM POPUP -->
+@section Scripts {
+    <!-- jQuery -->
+    <script src="~/js/vendor/jquery-3.1.0.min.js"></script>
+    <script src="~/js/vendor/twitter/jquery.tweet.min.js"></script>
+    <!-- Side Menu -->
+    <script src="~/js/side-menu.js"></script>
+    <!-- User Quickview Dropdown -->
+    <script src="~/js/user-board.js"></script>
+    <!-- Footer -->
+    <script src="~/js/footer.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
