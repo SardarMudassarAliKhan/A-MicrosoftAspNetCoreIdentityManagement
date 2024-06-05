@@ -29,7 +29,7 @@ namespace A_MicrosoftAspNetCoreIdentityManagement.Controllers
         {
             if (this.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Roles");
             }
             return View();
         }
@@ -64,10 +64,29 @@ namespace A_MicrosoftAspNetCoreIdentityManagement.Controllers
                     }
                     else
                     {
-                        HttpContext.Session.SetString("ProfileImage", "avatar_04.jpg");
+                        HttpContext.Session.SetString("ProfileImage", "favicon.ico");
                     }
 
-                    return RedirectToAction("Index", "Home");
+                    if(primaryRole == "Vendor")
+                    {
+                        return RedirectToAction("Index", "Roles");
+                    }
+                    else if (primaryRole == "Artist")
+                    {
+                        return RedirectToAction("BuyerDashBoard", "Roles");
+                    }
+                    else if (primaryRole == "Buyer")
+                    {
+                        return RedirectToAction("BuyerDashBoard", "Roles");
+                    }
+                    else if (primaryRole == "Admin")
+                    {
+                        return RedirectToAction("Index", "Roles");
+                    }
+                    else if (primaryRole == "Member")
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
             }
             ModelState.AddModelError("", "Faild to Login");
@@ -143,8 +162,8 @@ namespace A_MicrosoftAspNetCoreIdentityManagement.Controllers
                     if (resultSignIn.Succeeded)
                     {
                         HttpContext.Session.SetString("ProfileId", profile.ProfileId.ToString());
-                        HttpContext.Session.SetString("ProfileImage", "avatar_04.jpg");
-                        return RedirectToAction("Index", "Home");
+                        HttpContext.Session.SetString("ProfileImage", "favicon.ico");
+                        return RedirectToAction("Index", "Roles");
                     }
                 }
                 foreach (var error in result.Errors)
